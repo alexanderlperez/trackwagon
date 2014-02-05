@@ -41,6 +41,7 @@
             <div class="bar"></div>
             <div class="heading"></div>
             <div class="target"></div>
+            <!--<input type="text" id="heading">-->
           </div>
         </div>
         <div id="map"></div>
@@ -50,7 +51,9 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/mapstyle.js"></script>
         <script type="text/javascript">
-            app.initialize('map');
+            document.addEventListener('deviceready', function (e) {
+              app.initialize('map');
+            });
         </script>
     </body>
 </html>

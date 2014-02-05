@@ -19,6 +19,7 @@
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/img \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/cordova_plugins.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/index.html \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/spec \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/phonegap.js \
@@ -90,6 +91,18 @@
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/img/logo.png \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/index.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/mapstyle.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/utilities.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.geolocation \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.device-orientation \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/Coordinates.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/PositionError.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/Position.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/geolocation.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.device-orientation/www \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.device-orientation/www/CompassError.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.device-orientation/www/CompassHeading.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.device-orientation/www/compass.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/spec/lib \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/spec/helper.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/spec/index.js \

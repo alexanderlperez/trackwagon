@@ -17,32 +17,36 @@
  * under the License.
  */
 var app = (function () {
-  function _initialize(mapID) {
-    var startingLoc = undefined;
+  var lastHeadingPos = 0;
 
-    //getCurrentPosition callbacks
-    var onSuccess = function (position) { 
-      startingLoc = {};
-      startingLoc.lat = position.coords.latitude;
-      startingLoc.lng = position.coords.longitude;
+  function _initialize(mapID) {
+    _createMap(mapID, null);
+  }
+
+  function _initializeUserHeading() {
+    var options = {
+      frequency: 1000
     };
+
+    var onSuccess = function (heading) {
+      alert('compass success');
+      var rounded = Math.round(heading.magneticHeading);
+      alert(rounded);
+      $('#heading').attr('value', rounded);
+      translateHeading(heading);
+    };
+
 
     var onError = function (error) {
-      alert('code: '    + error.code    + '\n' +
-            'message: ' + error.message + '\n' +
-            'Falling back to default location');
+      alert("Compass error: " + error.code);
     };
 
-    //try to get the initial position of the user
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, 
-      {
-        maximumAge: 3000,
-        timeout: 5000,
-        enableHighAccuracy: true
-      }
-    );
-
-    _createMap(mapID, startingLoc);
+    if(navigator.compass) {
+      navigator.compass.watchHeading(onSuccess, onError, options);
+      alert('we got to initialize the compass');
+    } else {
+      alert('no compass!');
+    } 
   }
 
   function _createMap(_mapID, _startingLoc) {

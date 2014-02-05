@@ -41,14 +41,14 @@ body {
   height: 100%; }
 
 #map {
-  height: 60em; }
+  height: 85em; }
 
 .pagewrap {
   min-height: 100%;
-  margin-bottom: -60em; }
+  margin-bottom: -85em; }
 
 .pagewrap:after {
-  height: 58em;
+  height: 83em;
   content: '';
   display: block; }
 
@@ -81,11 +81,11 @@ body {
 
 img {
   width: 35%;
-  margin: 3% 0 10% 5%; }
+  margin: 3% 0 4% 5%; }
 
 .compass {
   width: 90%;
-  margin: 0 auto; }
+  margin: 0 auto 3em; }
 
   .directions {
     text-align: justify; }
