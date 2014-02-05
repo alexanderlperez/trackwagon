@@ -50,48 +50,7 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/mapstyle.js"></script>
         <script type="text/javascript">
-            var bandwagon = new google.maps.LatLng(40.693817, -73.984982);
-            var defaultHome = new google.maps.LatLng(40.580609, -73.958642);
-            var myOptions = {
-              zoom: 15,
-              center: bandwagon,
-              mapTypeId: google.maps.MapTypeId.ROADMAP,
-              styles: mapStyle,
-              disableDefaultUI: true
-            };
-
-            var map = new google.maps.Map(document.getElementById('map'), myOptions);
-
-            var bandwagonMarker = new google.maps.Marker({
-                position: bandwagon,
-                map: map,
-                title:"Bandwagon HQ"
-            });
-
-            var currentPos = new google.maps.Marker({
-                position: defaultHome,
-                map: map,
-                title:"Current Location"
-            });
-
-            var latlngbounds = new google.maps.LatLngBounds();
-            latlngbounds.extend(bandwagon);
-            latlngbounds.extend(defaultHome);
-            map.fitBounds(latlngbounds);
-
-            var targetLine = new google.maps.Polyline({
-              path: [defaultHome, bandwagon],
-              strokeColor: '#ffffff',
-              fillOpacity: 1,
-              strokeOpacity: 1,
-              strokeWeight: 5,
-              icons: [{
-                icon: { path: google.maps.SymbolPath.FORWARD_OPEN_ARROW }
-              }]
-            });
-            targetLine.setMap(map);
-
-            app.initialize();
+            app.initialize('map');
         </script>
     </body>
 </html>

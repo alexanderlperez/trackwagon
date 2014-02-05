@@ -40,18 +40,18 @@ html,
 body {
   height: 100%; }
 
+#map {
+  height: 60em; }
+
 .pagewrap {
   min-height: 100%;
-  margin-bottom: -33em; }
+  margin-bottom: -60em; }
 
 .pagewrap:after {
+  height: 58em;
   content: '';
   display: block; }
 
-#map {
-  height: 33em; }
-.pagewrap:after {
-  height: 30em; }
 /* ----------- Colors ----------- */
 /* Plain White */
 .heading {
@@ -81,7 +81,7 @@ body {
 
 img {
   width: 35%;
-  margin: 3% 0 4% 5%; }
+  margin: 3% 0 10% 5%; }
 
 .compass {
   width: 90%;
