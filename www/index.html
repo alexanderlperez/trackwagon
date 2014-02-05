@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>trackwagon</title>
+    </head>
+    <body>
+
+        <div class="pagewrap">
+          <img src="img/bandwagon-logo.png" alt="" />
+          <div class="compass">
+            <div class="directions">
+              <span>S</span>
+              <span>W</span>
+              <span>N</span>
+              <span>E</span>
+              <span>S</span>
+            </div>
+            <div class="bar"></div>
+            <div class="heading"></div>
+            <div class="target"></div>
+          </div>
+        </div>
+        <div id="map"></div>
+
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDog0MXYGbXEaX1r3mkQAMBeTs8f8SHVKo&sensor=true"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/mapstyle.js"></script>
+        <script type="text/javascript">
+            var bandwagon = new google.maps.LatLng(40.693817, -73.984982);
+            var defaultHome = new google.maps.LatLng(40.580609, -73.958642);
+            var myOptions = {
+              zoom: 15,
+              center: bandwagon,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              styles: mapStyle,
+              disableDefaultUI: true
+            };
+
+            var map = new google.maps.Map(document.getElementById('map'), myOptions);
+
+            var bandwagonMarker = new google.maps.Marker({
+                position: bandwagon,
+                map: map,
+                title:"Bandwagon HQ"
+            });
+
+            var currentPos = new google.maps.Marker({
+                position: defaultHome,
+                map: map,
+                title:"Current Location"
+            });
+
+            var latlngbounds = new google.maps.LatLngBounds();
+            latlngbounds.extend(bandwagon);
+            latlngbounds.extend(defaultHome);
+            map.fitBounds(latlngbounds);
+
+            var targetLine = new google.maps.Polyline({
+              path: [defaultHome, bandwagon],
+              strokeColor: '#ffffff',
+              fillOpacity: 1,
+              strokeOpacity: 1,
+              strokeWeight: 5,
+              icons: [{
+                icon: { path: google.maps.SymbolPath.FORWARD_OPEN_ARROW }
+              }]
+            });
+            targetLine.setMap(map);
+
+            app.initialize();
+        </script>
+    </body>
+</html>
