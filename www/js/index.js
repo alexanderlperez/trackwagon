@@ -16,34 +16,65 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+var app = (function () {
+  function _initialize(mapID, startingLoc) {
+    _createMap(mapID, startingLoc);
+  }
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
+  function _createMap(_mapID, _startingLoc) {
+    var home;
+    var defaultHome = new google.maps.LatLng(40.580609, -73.958642);
+    var bandwagon = new google.maps.LatLng(40.693817, -73.984982);
+
+    //default home position if one is not given
+    if (_startingLoc !== undefined) {
+      home = new google.maps.LatLng(_startingLoc.lat, _startingLoc.lng);
+    } else {
+      home = defaultHome;
     }
-};
+
+    var myOptions = {
+      zoom: 15,
+      center: bandwagon,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: mapStyle,
+      disableDefaultUI: true
+    };
+
+    var map = new google.maps.Map(document.getElementById(_mapID), myOptions);
+
+    var bandwagonMarker = new google.maps.Marker({
+        position: bandwagon,
+        map: map,
+        title:"Bandwagon HQ"
+    });
+
+    var currentPos = new google.maps.Marker({
+        position: home,
+        map: map,
+        title:"Current Location"
+    });
+
+    var latlngbounds = new google.maps.LatLngBounds();
+    latlngbounds.extend(bandwagon);
+    latlngbounds.extend(home);
+    map.fitBounds(latlngbounds);
+
+    var targetLine = new google.maps.Polyline({
+      path: [home, bandwagon],
+      strokeColor: '#ffffff',
+      fillOpacity: 1,
+      strokeOpacity: 1,
+      strokeWeight: 5,
+      icons: [{
+        icon: { path: google.maps.SymbolPath.FORWARD_OPEN_ARROW }
+      }]
+    });
+    targetLine.setMap(map);
+  }
+
+  return {
+    initialize: _initialize
+  };
+})();

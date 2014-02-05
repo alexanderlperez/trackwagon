@@ -28,16 +28,69 @@
     </head>
     <body>
 
-        <img src="img/bandwagon-logo.png" alt="" />
-        <div class="bar"></div>
-        <div class="directions"></div>
-        <div class="heading"></div>
-        <div class="target"></div>
-        <div class="map"></div>
+        <div class="pagewrap">
+          <img src="img/bandwagon-logo.png" alt="" />
+          <div class="compass">
+            <div class="directions">
+              <span>S</span>
+              <span>W</span>
+              <span>N</span>
+              <span>E</span>
+              <span>S</span>
+            </div>
+            <div class="bar"></div>
+            <div class="heading"></div>
+            <div class="target"></div>
+          </div>
+        </div>
+        <div id="map"></div>
 
         <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDog0MXYGbXEaX1r3mkQAMBeTs8f8SHVKo&sensor=true"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/mapstyle.js"></script>
         <script type="text/javascript">
+            var bandwagon = new google.maps.LatLng(40.693817, -73.984982);
+            var defaultHome = new google.maps.LatLng(40.580609, -73.958642);
+            var myOptions = {
+              zoom: 15,
+              center: bandwagon,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              styles: mapStyle,
+              disableDefaultUI: true
+            };
+
+            var map = new google.maps.Map(document.getElementById('map'), myOptions);
+
+            var bandwagonMarker = new google.maps.Marker({
+                position: bandwagon,
+                map: map,
+                title:"Bandwagon HQ"
+            });
+
+            var currentPos = new google.maps.Marker({
+                position: defaultHome,
+                map: map,
+                title:"Current Location"
+            });
+
+            var latlngbounds = new google.maps.LatLngBounds();
+            latlngbounds.extend(bandwagon);
+            latlngbounds.extend(defaultHome);
+            map.fitBounds(latlngbounds);
+
+            var targetLine = new google.maps.Polyline({
+              path: [defaultHome, bandwagon],
+              strokeColor: '#ffffff',
+              fillOpacity: 1,
+              strokeOpacity: 1,
+              strokeWeight: 5,
+              icons: [{
+                icon: { path: google.maps.SymbolPath.FORWARD_OPEN_ARROW }
+              }]
+            });
+            targetLine.setMap(map);
+
             app.initialize();
         </script>
     </body>

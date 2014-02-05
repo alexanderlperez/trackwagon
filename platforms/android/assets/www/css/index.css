@@ -19,7 +19,9 @@
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
     box-sizing: border-box;
+    margin: 0;
 }
+
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
@@ -28,26 +30,90 @@ body {
     background: #1f1f1f;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
-    height:100%;
     margin:0px;
     padding:0px;
     text-transform:uppercase;
     width:100%; }
 
-.directions {
-  width: 80%;
+/* Sticky Footer Map */
+html,
+body {
+  height: 100%; }
+
+.pagewrap {
+  min-height: 100%;
+  margin-bottom: -33em; }
+
+.pagewrap:after {
+  content: '';
+  display: block; }
+
+#map {
+  height: 33em; }
+.pagewrap:after {
+  height: 30em; }
+/* ----------- Colors ----------- */
+/* Plain White */
+.heading {
+  background: white; }
+
+/* Emerald Green #2ecc71 */
+.bar {
+  background: #2ecc71; }
+.directions span {
+  color: #2ecc71; }
+
+/* Alazarin Red-Orange #e74c3c */
+/* Peter River #3498db */
+.target {
+  background: #3498db; }
+
+/* ----- initial positions ------ */
+.heading,
+.target {
+  position: relative;
+  top: -2.75em;
   margin: 0 auto; }
 
-  .directions span {
-    display: inline-block;
-    margin: 0 20% 0 0;
-    text-align: left; }
+.target { 
+  top: -5em; }
+/* ------------------------------ */
 
-.bar {
-  background: #2ecc71;
-  margin: 0 auto;
-  height: 20px;
-  width: 80%; }
+img {
+  width: 35%;
+  margin: 3% 0 4% 5%; }
+
+.compass {
+  width: 90%;
+  margin: 0 auto; }
+
+  .directions {
+    text-align: justify; }
+
+    .directions span {
+      display: inline-block;
+      font-size: 5em;
+      font-weight: bold;
+      text-align: left; }
+
+  .directions:after {
+    content: '';
+    width: 100%;
+    display: inline-block; }
+
+  .bar {
+    margin: 1em 0;
+    height: 13px; }
+
+  .heading {
+    z-index: 2;
+    height: 30px;
+    width: 2px; }
+
+  .target {
+    border-radius: 30px;
+    height: 2em;
+    width: 2em; }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
