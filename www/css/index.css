@@ -92,8 +92,15 @@ img {
   text-align: center;
   margin: 0 auto 3em; }
 
-  span {
-    font-size: 10em; }
+  .compass span {
+    font-size: 20em; }
+
+  .compass span, 
+  .compass div {
+    display: inline-block; }
+  .compass div span {
+    display: block; }
+  
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {

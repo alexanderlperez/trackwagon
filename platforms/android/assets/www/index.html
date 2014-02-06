@@ -27,13 +27,14 @@
         <title>trackwagon</title>
     </head>
     <body>
-        <!--<style> .debug { display: none; } </style>-->
-
         <div class="pagewrap">
           <img src="img/bandwagon-logo.png" alt="" />
           <div class="compass">
             <span class="left">&#9664;</span>
-            <span class="up">&#9650;</span>
+            <div>
+              <span class="up">&#9650;</span>
+              <span class="down">&#9660;</span>
+            </div>
             <span class="right">&#9654;</span>
             <p id="heading" class="debug" style="color: white">Heading</p>
             <p id="target" class="debug" style="color: white">target</p>
@@ -43,14 +44,27 @@
 
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDog0MXYGbXEaX1r3mkQAMBeTs8f8SHVKo&sensor=true"></script>
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/latlon.js"></script>
         <script type="text/javascript" src="js/mapstyle.js"></script>
         <script type="text/javascript">
+          //development env scaffolding
           DEBUG = true;
-          document.addEventListener('deviceready', function (e) {
+          LOCAL_DEBUG = false;
+
+          if (!DEBUG) {
+            $('.debug').css('display', 'none');
+          }
+
+          // easier testing
+          if (LOCAL_DEBUG) {
             app.initialize('map');
-          }, false);
+          } else {
+            document.addEventListener('deviceready', function (e) {
+              app.initialize('map');
+            }, false);
+          }
         </script>
     </body>
 </html>

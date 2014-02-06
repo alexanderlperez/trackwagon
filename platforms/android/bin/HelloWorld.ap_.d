@@ -89,7 +89,9 @@
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/css/index.css \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/img/bandwagon-logo.png \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/img/logo.png \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/jquery-1.10.2.min.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/latlon.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/jquery-1.10.1.min.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/index.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/mapstyle.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/utilities.js \
