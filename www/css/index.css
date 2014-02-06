@@ -41,14 +41,14 @@ body {
   height: 100%; }
 
 #map {
-  height: 85em; }
+  height: 80em; }
 
 .pagewrap {
   min-height: 100%;
-  margin-bottom: -85em; }
+  margin-bottom: -80em; }
 
 .pagewrap:after {
-  height: 83em;
+  height: 80em;
   content: '';
   display: block; }
 
@@ -60,10 +60,14 @@ body {
 /* Emerald Green #2ecc71 */
 .bar {
   background: #2ecc71; }
-.directions span {
+
+.stay {
   color: #2ecc71; }
 
 /* Alazarin Red-Orange #e74c3c */
+.turn {
+  color: #e74c3c; }
+
 /* Peter River #3498db */
 .target {
   background: #3498db; }
@@ -84,36 +88,12 @@ img {
   margin: 3% 0 4% 5%; }
 
 .compass {
-  width: 90%;
+  width: 100%;
+  text-align: center;
   margin: 0 auto 3em; }
 
-  .directions {
-    text-align: justify; }
-
-    .directions span {
-      display: inline-block;
-      font-size: 5em;
-      font-weight: bold;
-      text-align: left; }
-
-  .directions:after {
-    content: '';
-    width: 100%;
-    display: inline-block; }
-
-  .bar {
-    margin: 1em 0;
-    height: 13px; }
-
-  .heading {
-    z-index: 2;
-    height: 30px;
-    width: 2px; }
-
-  .target {
-    border-radius: 30px;
-    height: 2em;
-    width: 2em; }
+  span {
+    font-size: 10em; }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
