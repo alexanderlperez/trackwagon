@@ -51,7 +51,10 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/mapstyle.js"></script>
         <script type="text/javascript">
-          app.initialize('map');
+          DEBUG = true;
+          document.addEventListener('deviceready', function (e) {
+            app.initialize('map');
+          }, false);
         </script>
     </body>
 </html>

@@ -11,7 +11,6 @@ function _initializeUserHeading() {
     translateHeading(heading);
   };
 
-
   var onError = function (error) {
     alert("Compass error: " + error.code);
   };

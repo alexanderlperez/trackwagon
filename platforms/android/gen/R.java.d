@@ -1,4 +1,4 @@
-/home/alex/port/Projects/phonegap/trackwagon/platforms/android/gen/com/phonegap/helloworld/R.java \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/gen/com/phonegap/trackwagon/R.java \
  : /home/alex/port/Projects/phonegap/trackwagon/platforms/android/res/drawable-ldpi/icon.png \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/res/xml/config.xml \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/res/drawable-mdpi/icon.png \

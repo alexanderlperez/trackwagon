@@ -24,6 +24,10 @@ var app = (function () {
   }
 
   function _createMap(_mapID, _startingLoc) {
+    if (DEBUG) {
+      alert('creating the map');
+    }
+
     var home;
     var defaultHome = new google.maps.LatLng(40.580609, -73.958642);
     var bandwagon = new google.maps.LatLng(40.693817, -73.984982);
