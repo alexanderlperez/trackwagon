@@ -23,39 +23,13 @@ var app = (function () {
     _createMap(mapID, null);
   }
 
-  function _initializeUserHeading() {
-    var options = {
-      frequency: 1000
-    };
-
-    var onSuccess = function (heading) {
-      alert('compass success');
-      var rounded = Math.round(heading.magneticHeading);
-      alert(rounded);
-      $('#heading').attr('value', rounded);
-      translateHeading(heading);
-    };
-
-
-    var onError = function (error) {
-      alert("Compass error: " + error.code);
-    };
-
-    if(navigator.compass) {
-      navigator.compass.watchHeading(onSuccess, onError, options);
-      alert('we got to initialize the compass');
-    } else {
-      alert('no compass!');
-    } 
-  }
-
   function _createMap(_mapID, _startingLoc) {
     var home;
     var defaultHome = new google.maps.LatLng(40.580609, -73.958642);
     var bandwagon = new google.maps.LatLng(40.693817, -73.984982);
 
     //default home position if one is not given
-    if (_startingLoc !== undefined) {
+    if (_startingLoc != undefined) {
       home = new google.maps.LatLng(_startingLoc.lat, _startingLoc.lng);
     } else {
       home = defaultHome;

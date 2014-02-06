@@ -1,3 +1,29 @@
+function _initializeUserHeading() {
+  var options = {
+    frequency: 1000
+  };
+
+  var onSuccess = function (heading) {
+    alert('compass success');
+    var rounded = Math.round(heading.magneticHeading);
+    alert(rounded);
+    $('#heading').attr('value', rounded);
+    translateHeading(heading);
+  };
+
+
+  var onError = function (error) {
+    alert("Compass error: " + error.code);
+  };
+
+  if(navigator.compass) {
+    navigator.compass.watchHeading(onSuccess, onError, options);
+    alert('we got to initialize the compass');
+  } else {
+    alert('no compass!');
+  } 
+}
+
 // origin is true north, 0 deg on compass api
 // also, center on the HTML graphic.  Going east is 0 - 180 deg
 // going west is 181 - 360 deg
