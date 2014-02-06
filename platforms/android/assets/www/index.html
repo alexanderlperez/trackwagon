@@ -27,6 +27,7 @@
         <title>trackwagon</title>
     </head>
     <body>
+        <!--<style> .debug { display: none; } </style>-->
 
         <div class="pagewrap">
           <img src="img/bandwagon-logo.png" alt="" />
@@ -34,7 +35,8 @@
             <span class="left">&#9664;</span>
             <span class="up">&#9650;</span>
             <span class="right">&#9654;</span>
-            <p id="heading" style="color: white">Heading</p>
+            <p id="heading" class="debug" style="color: white">Heading</p>
+            <p id="target" class="debug" style="color: white">target</p>
           </div>
         </div>
         <div id="map"></div>
@@ -42,6 +44,7 @@
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDog0MXYGbXEaX1r3mkQAMBeTs8f8SHVKo&sensor=true"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/latlon.js"></script>
         <script type="text/javascript" src="js/mapstyle.js"></script>
         <script type="text/javascript">
           DEBUG = true;

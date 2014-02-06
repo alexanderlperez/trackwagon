@@ -27,14 +27,14 @@
         <title>trackwagon</title>
     </head>
     <body>
-
         <div class="pagewrap">
           <img src="img/bandwagon-logo.png" alt="" />
           <div class="compass">
             <span class="left">&#9664;</span>
             <span class="up">&#9650;</span>
             <span class="right">&#9654;</span>
-            <p id="heading" style="color: white">Heading</p>
+            <p id="heading" class="debug" style="color: white">Heading</p>
+            <p id="target" class="debug" style="color: white">target</p>
           </div>
         </div>
         <div id="map"></div>
@@ -45,10 +45,22 @@
         <script type="text/javascript" src="js/latlon.js"></script>
         <script type="text/javascript" src="js/mapstyle.js"></script>
         <script type="text/javascript">
+          //development env scaffolding
           DEBUG = true;
-          document.addEventListener('deviceready', function (e) {
+          LOCAL_DEBUG = false;
+
+          if (!DEBUG) {
+            $('.debug').css('display', 'none');
+          }
+
+          // easier testing
+          if (LOCAL_DEBUG) {
             app.initialize('map');
-          }, false);
+          } else {
+            document.addEventListener('deviceready', function (e) {
+              app.initialize('map');
+            }, false);
+          }
         </script>
     </body>
 </html>

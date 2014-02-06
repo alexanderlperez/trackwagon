@@ -4,12 +4,22 @@ var app = (function () {
   function _initialize(mapID) {
     _createMap(mapID, null);
     _initCompass('heading');
+
+    //show the target's bearing in relation to the starting location
+    if (DEBUG) {
+      var target = new LatLon(40.693817, -73.984982);
+      var loc = new LatLon(40.580609, -73.958642);
+      var targetBearingElem = document.getElementById('target');
+      var targetBearing = loc.bearingTo(target).toString();
+      alert('target bearing: ' + targetBearing);
+      targetBearingElem.innerHTML = targetBearing.toString();
+    }
   }
 
   function _initCompass (_headingID) {
     var _onCompassSuccess = function (heading) {
       var roundedHeading = Math.round(heading.magneticHeading);
-      // emit the signal with the new compass heading to be processed
+      // deal new compass heading to be processed ..
 
       if (DEBUG) {
         headingElem.innerHTML = roundedHeading.toString();
