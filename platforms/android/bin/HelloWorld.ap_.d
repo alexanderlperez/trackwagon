@@ -92,8 +92,12 @@
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/index.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/mapstyle.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/js/utilities.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.vibration \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.geolocation \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.device-orientation \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.dialogs \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.vibration/www \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.vibration/www/vibration.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/Coordinates.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/PositionError.js \
@@ -103,6 +107,10 @@
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.device-orientation/www/CompassError.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.device-orientation/www/CompassHeading.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.device-orientation/www/compass.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.dialogs/www \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.dialogs/www/android \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.dialogs/www/notification.js \
+/home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/plugins/org.apache.cordova.dialogs/www/android/notification.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/spec/lib \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/spec/helper.js \
 /home/alex/port/Projects/phonegap/trackwagon/platforms/android/assets/www/spec/index.js \

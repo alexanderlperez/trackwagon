@@ -21,6 +21,32 @@ var app = (function () {
 
   function _initialize(mapID) {
     _createMap(mapID, null);
+    _initCompass('heading');
+  }
+
+  function _initCompass (_headingID) {
+    // grab the element we're working with
+    var headingElem = document.getElementById(_headingID);
+
+    // make sure our elem exists
+    // don't init anthing if it's not
+    if (headingElem != undefined) {
+      if (DEBUG) {
+        alert('Setting up the compass on ID: ' + _headingID);
+      }
+
+      // set up the watch to activate every 100ms
+      var options = { frequency: 100 };
+      navigator.compass.watchHeading(function (heading) {
+        var roundedHeading = Math.round(heading.magneticHeading);
+        headingElem.innerHTML = roundedHeading.toString();
+      }, _onError, options);
+    } else {
+      if (DEBUG) {
+        alert('ID doesn\'t exist!');
+      }
+    }
+
   }
 
   function _createMap(_mapID, _startingLoc) {
@@ -77,6 +103,10 @@ var app = (function () {
       }]
     });
     targetLine.setMap(map);
+  }
+
+  function _onError (error) {
+    alert("Compass Error: " + error.code);
   }
 
   return {
