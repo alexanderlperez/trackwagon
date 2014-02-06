@@ -3,7 +3,7 @@ var app = (function () {
   var locData = {};
 
   function _initialize(mapID) {
-    _createMap(mapID, null);
+    _createMap(mapID, _initGeoLoc());
     _initCompass('heading');
 
     //show the target's bearing in relation to the starting location
@@ -15,6 +15,38 @@ var app = (function () {
       alert('target bearing: ' + targetBearing);
       targetBearingElem.innerHTML = targetBearing.toString();
     }
+  }
+
+  function _initGeoLoc () {
+    var startingLoc = undefined;
+
+    //getCurrentPosition callbacks
+    var onSuccess = function (position) { 
+      startingLoc = {};
+      startingLoc.lat = position.coords.latitude;
+      startingLoc.lng = position.coords.longitude;
+
+      if (DEBUG) {
+        alert(startingLoc.lat.toString() + ", " + startingLoc.lng.toString());
+      }
+    };
+
+    var onError = function (error) {
+      alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n' +
+            'Falling back to default location');
+    };
+
+    //try to get the initial position of the user
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, 
+      {
+        maximumAge: 3000,
+        timeout: 5000,
+        enableHighAccuracy: true
+      }
+    );
+
+    return startingLoc;
   }
 
   function _processBearingToTarget(_heading) {
@@ -35,10 +67,10 @@ var app = (function () {
       // tell the user to keep going north
       corrections += "north ";
       $('.up').addClass('turn');
-    } else {
+    } else if (targetHeading > 90 && targetHeading < 270) {
       // tell the user to keep going south
       corrections += "south ";
-      $('.down').addclass('turn');
+      $('.down').addClass('turn');
     }
 
     //check if we're in the same horiz semi as the target
@@ -101,16 +133,16 @@ var app = (function () {
     var defaultHome = new google.maps.LatLng(40.580609, -73.958642);
     var bandwagon = new google.maps.LatLng(40.693817, -73.984982);
 
-    // will be more dynamic in the future
-    locData.curLoc = new LatLon(defaultHome.lat(), defaultHome.lng());
-    locData.targetLoc = new LatLon(bandwagon.lat(), bandwagon.lng());
-
     //default home position if one is not given
     if (_startingLoc != undefined) {
       home = new google.maps.LatLng(_startingLoc.lat, _startingLoc.lng);
     } else {
       home = defaultHome;
     }
+
+    // will be more dynamic in the future
+    locData.curLoc = new LatLon(home.lat(), home.lng());
+    locData.targetLoc = new LatLon(bandwagon.lat(), bandwagon.lng());
 
     var myOptions = {
       zoom: 15,
@@ -150,6 +182,22 @@ var app = (function () {
       }]
     });
     targetLine.setMap(map);
+
+    google.maps.event.addListener(map, 'click', function (event) {
+      home = event.latLng; 
+      currentPos.setPosition(home);
+      currentPos.setMap(map);
+      targetLine.setOptions({
+        path: [home, bandwagon],
+      });
+      targetLine.setMap(map);
+      var newBounds = new google.maps.LatLngBounds();
+      newBounds.extend(bandwagon);
+      newBounds.extend(home);
+      map.fitBounds(newBounds);
+      var currentPosLatLng = currentPos.getPosition();
+      locData.curLoc = new LatLon(currentPosLatLng.lat(), currentPosLatLng.lng());
+    });
   }
 
 
